@@ -1,1 +1,2 @@
 # yaruki-switch-shindan
+test
