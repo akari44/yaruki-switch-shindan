@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>わが子の"やる気スイッチ"診断</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- タイトル画面 -->
+        <div id="screen-start">
+            <h1>わが子の<br>"やる気スイッチ"診断</h1>
+            <p>3問だけ。お子さんの"動くスイッチ"が
+                <button id="btn-start">診断スタート</button>
+        </div>
+
+        <!-- 質問画面 -->
+        <div id="screen-quiz" class="hidden">
+            <p id="question-number"></p>
+            <p id="question-text"></p>
+            <div id="choices"></div>
+        </div>
+
+        <!-- 結果画面 -->
+        <div id="screen-result" class="hidden">
+            <p>あなたのお子さんのやる気スイッチは…</p>
+            <h2 id="result-type"></h2>
+            <p>かも？</p>
+            <p id="result-description"></p>
+            <p id="result-teaser">さらに詳しい結果</p>
+            <a id="btn-line" href="#" target="_blank">LINEで受け取る（無料）</a>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

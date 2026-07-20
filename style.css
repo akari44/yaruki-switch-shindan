@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+    background: #fff8f5;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#app {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #e07060;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #e07060;
+    margin: 16px 0;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+button,
+#btn-line {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    margin-top: 12px;
+    background: #e07060;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover,
+#btn-line:hover {
+    background: #c85a4a;
+}
+
+#question-number {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.hidden {
+    display: none;
+}
