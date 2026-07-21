@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>わが子の"やる気スイッチ"診断</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&family=Yomogi&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,26 +17,84 @@
 
         <!-- タイトル画面 -->
         <div id="screen-start">
-            <h1>わが子の<br>"やる気スイッチ"診断</h1>
-            <p>3問だけ。お子さんの"動くスイッチ"が
-                <button id="btn-start">診断スタート</button>
+            <div class="cloud-balloon">
+                <svg class="cloud-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix"
+                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -11" result="goo" />
+                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                        </filter>
+                    </defs>
+                    <!-- 思い出しっぽの小さな雲 -->
+                    <circle class="cloud-dot" cx="70" cy="182" r="9" />
+                    <circle class="cloud-dot" cx="52" cy="192" r="6" />
+                    <!-- ピンクのふち -->
+                    <g filter="url(#goo)" transform="translate(160,90) scale(1.05) translate(-160,-90)">
+                        <ellipse cx="160" cy="110" rx="115" ry="42" fill="#f3c9c2" />
+                        <circle cx="70" cy="90" r="42" fill="#f3c9c2" />
+                        <circle cx="120" cy="66" r="46" fill="#f3c9c2" />
+                        <circle cx="178" cy="60" r="50" fill="#f3c9c2" />
+                        <circle cx="235" cy="72" r="44" fill="#f3c9c2" />
+                        <circle cx="272" cy="98" r="38" fill="#f3c9c2" />
+                        <circle cx="115" cy="108" r="46" fill="#f3c9c2" />
+                        <circle cx="210" cy="108" r="46" fill="#f3c9c2" />
+                    </g>
+                    <!-- 白い本体 -->
+                    <g filter="url(#goo)">
+                        <ellipse cx="160" cy="110" rx="115" ry="42" fill="#ffffff" />
+                        <circle cx="70" cy="90" r="42" fill="#ffffff" />
+                        <circle cx="120" cy="66" r="46" fill="#ffffff" />
+                        <circle cx="178" cy="60" r="50" fill="#ffffff" />
+                        <circle cx="235" cy="72" r="44" fill="#ffffff" />
+                        <circle cx="272" cy="98" r="38" fill="#ffffff" />
+                        <circle cx="115" cy="108" r="46" fill="#ffffff" />
+                        <circle cx="210" cy="108" r="46" fill="#ffffff" />
+                    </g>
+                </svg>
+                <p id="intro-text"></p>
+            </div>
+            <div class="title-wrap">
+                <h1 id="main-title">わが子の<br><span class="title-accent">"やる気スイッチ"</span>診断</h1>
+                <div class="stars-container" id="stars-container"></div>
+            </div>
+            <p class="subtitle">
+                3問、選ぶだけのシンプル診断。
+                <br>この場で結果がすぐ出ます！</p>
+            <button id="btn-start" class="btn-main">✨ 診断スタート ✨</button>
         </div>
 
         <!-- 質問画面 -->
         <div id="screen-quiz" class="hidden">
             <p id="question-number"></p>
+            <div class="progress-bar"><div id="progress-fill"></div></div>
             <p id="question-text"></p>
             <div id="choices"></div>
         </div>
 
         <!-- 結果画面 -->
         <div id="screen-result" class="hidden">
-            <p>あなたのお子さんのやる気スイッチは…</p>
-            <h2 id="result-type"></h2>
-            <p>かも？</p>
+            <div class="result-header">
+                <p class="result-lead">あなたのお子さんの<br>やる気スイッチは…</p>
+                <div class="result-badge">
+                    <img id="result-img" src="" alt="" class="result-illust">
+                    <h2 id="result-type"></h2>
+                </div>
+            </div>
+            <p class="result-maybe">…かもしれません！</p>
             <p id="result-description"></p>
-            <p id="result-teaser">さらに詳しい結果</p>
-            <a id="btn-line" href="#" target="_blank">LINEで受け取る（無料）</a>
+            <div class="cta-section">
+                <p class="cta-free">無料でできます！</p>
+                <ul class="cta-list">
+                    <li>やる気スイッチ診断フルバージョン<br><span>（＋5問で詳しい診断）</span></li>
+                    <li>診断結果ごとの声かけ・対応のコツ</li>
+                    <li id="cta-item3"></li>
+                </ul>
+                <p class="cta-limited" id="cta-limited"></p>
+                <a id="btn-cta" href="#" target="_blank" class="btn-main btn-cta-style"></a>
+            </div>
+            <div class="sparkles" id="sparkles"></div>
         </div>
 
     </div>

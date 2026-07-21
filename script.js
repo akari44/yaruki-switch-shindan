@@ -1,3 +1,15 @@
+// ====================================
+// 依頼主カスタマイズ設定（ここを変更）
+// ====================================
+const config = {
+  intro: "まずは、子どもの「個性」を\n知ることが大切かも？",  // ← 前置き文（雲の中の文字）
+  item3: "無料個別相談会（30分）",          // ← 3つ目のプレゼント内容
+  limited: "数量限定のプレゼントです！お早めにお受け取りください🎁",  // ← 限定文
+  btnText: "LINEで受け取る（無料）",        // ← ボタンの文言
+  url: "#",                                 // ← リンク先URL
+};
+// ====================================
+
 const questions = [
   {
     text: "運動会で、わが子が楽しみにしていることがあるとしたら？",
@@ -27,22 +39,54 @@ const questions = [
 
 const results = {
   A: {
+    img: "img/type-a.png",
     type: "「見てるよ」スイッチ",
-    description: "お子さんは「ちゃんと見てもらえてる」と感じると動き出します。\n褒め言葉より、まず「見てるよ」の一言が力になるタイプです。"
+    description: "3問診断の結果では、\nお子さんは「ちゃんと見てもらえてる」と感じると動き出すタイプです。\n褒め言葉より、まず「見てるよ」の一言が力になります。"
   },
   B: {
+    img: "img/type-b.png",
     type: "「おもしろいよ」スイッチ",
-    description: "お子さんは「面白そう！」という好奇心で動き出します。\n「やってみよう」「どうなるかな？」の言葉がやる気に火をつけます。"
+    description: "3問診断の結果では、\nお子さんは「面白そう！」という好奇心で動き出すタイプです。\n「やってみよう」「どうなるかな？」の言葉がやる気に火をつけます。"
   },
   C: {
+    img: "img/type-c.png",
     type: "「決めれるよ」スイッチ",
-    description: "お子さんは「自分で決めた」という感覚で動き出します。\n選ばせる・任せるが、いちばんのやる気スイッチです。"
+    description: "3問診断の結果では、\nお子さんは「自分で決めた」という感覚で動き出すタイプです。\n選ばせる・任せるが、いちばんのやる気スイッチです。"
   }
 };
 
 let current = 0;
 let scores = { A: 0, B: 0, C: 0 };
 
+// 前置き文をセット
+document.getElementById("intro-text").textContent = config.intro;
+
+// タイトルホバーで★が飛ぶ
+const title = document.getElementById("main-title");
+const starsContainer = document.getElementById("stars-container");
+
+title.addEventListener("mouseenter", () => {
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => spawnStar(), i * 60);
+  }
+});
+
+function spawnStar() {
+  const star = document.createElement("span");
+  star.classList.add("star");
+  star.textContent = ["★", "☆", "✦", "✧"][Math.floor(Math.random() * 4)];
+  const dx = (Math.random() - 0.5) * 120;
+  const dy = -(Math.random() * 80 + 20);
+  star.style.setProperty("--dx", dx + "px");
+  star.style.setProperty("--dy", dy + "px");
+  star.style.left = (30 + Math.random() * 40) + "%";
+  star.style.top = (20 + Math.random() * 40) + "%";
+  star.style.color = ["#e07060", "#f0a090", "#ffc0b0", "#ffdd88"][Math.floor(Math.random() * 4)];
+  starsContainer.appendChild(star);
+  setTimeout(() => star.remove(), 800);
+}
+
+// スタートボタン
 document.getElementById("btn-start").addEventListener("click", () => {
   document.getElementById("screen-start").classList.add("hidden");
   document.getElementById("screen-quiz").classList.remove("hidden");
@@ -52,6 +96,11 @@ document.getElementById("btn-start").addEventListener("click", () => {
 function showQuestion() {
   const q = questions[current];
   document.getElementById("question-number").textContent = `Q${current + 1} / ${questions.length}`;
+
+  // プログレスバー更新
+  const progress = ((current) / questions.length) * 100;
+  document.getElementById("progress-fill").style.width = progress + "%";
+
   document.getElementById("question-text").textContent = q.text;
 
   const choicesEl = document.getElementById("choices");
@@ -59,7 +108,13 @@ function showQuestion() {
   q.choices.forEach(choice => {
     const btn = document.createElement("button");
     btn.textContent = choice.label;
-    btn.addEventListener("click", () => answer(choice.type));
+    btn.classList.add("choice-btn");
+    btn.addEventListener("click", () => {
+      // 光るエフェクト
+      btn.classList.add("selected");
+      // 少し待ってから次へ
+      setTimeout(() => answer(choice.type), 350);
+    });
     choicesEl.appendChild(btn);
   });
 }
@@ -76,10 +131,50 @@ function answer(type) {
 
 function showResult() {
   document.getElementById("screen-quiz").classList.add("hidden");
-  document.getElementById("screen-result").classList.remove("hidden");
+
+  // プログレスバー100%
+  document.getElementById("progress-fill").style.width = "100%";
+
+  const resultScreen = document.getElementById("screen-result");
+  resultScreen.classList.remove("hidden");
 
   const top = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
   const result = results[top];
+
+  const img = document.getElementById("result-img");
+  img.src = result.img;
+  img.alt = result.type;
   document.getElementById("result-type").textContent = result.type;
   document.getElementById("result-description").textContent = result.description;
+
+  // CTAをconfigから設定
+  document.getElementById("cta-item3").textContent = config.item3;
+  document.getElementById("cta-limited").textContent = config.limited;
+  const btnCta = document.getElementById("btn-cta");
+  btnCta.textContent = config.btnText;
+  btnCta.href = config.url;
+
+  // キラキラを飛ばす
+  setTimeout(() => spawnSparkles(), 400);
+}
+
+function spawnSparkles() {
+  const container = document.getElementById("sparkles");
+  const sparkleChars = ["✨", "⭐", "💫", "🌟", "✦", "★"];
+  for (let i = 0; i < 12; i++) {
+    setTimeout(() => {
+      const s = document.createElement("span");
+      s.classList.add("sparkle");
+      s.textContent = sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
+      const dx = (Math.random() - 0.5) * 200;
+      const dy = -(Math.random() * 150 + 30);
+      s.style.setProperty("--dx", dx + "px");
+      s.style.setProperty("--dy", dy + "px");
+      s.style.left = (10 + Math.random() * 80) + "%";
+      s.style.top = (20 + Math.random() * 60) + "%";
+      s.style.animationDelay = (Math.random() * 0.3) + "s";
+      container.appendChild(s);
+      setTimeout(() => s.remove(), 1800);
+    }, i * 80);
+  }
 }
