@@ -2,7 +2,7 @@
 // 依頼主カスタマイズ設定（ここを変更）
 // ====================================
 const config = {
-  intro: "まずは、子どもの「個性」を\n知ることが大切かも？",  // ← 前置き文（雲の中の文字）
+  intro: "何度言っても動かない…\nそれ、「個性」かも？",  // ← 前置き文（雲の中の文字）
   item3: "無料個別相談会（30分）",          // ← 3つ目のプレゼント内容
   limited: "数量限定のプレゼントです！お早めにお受け取りください🎁",  // ← 限定文
   btnText: "LINEで受け取る（無料）",        // ← ボタンの文言
@@ -41,17 +41,17 @@ const results = {
   A: {
     img: "img/type-a.png",
     type: "「見てるよ」スイッチ",
-    description: "3問診断の結果では、\nお子さんは「ちゃんと見てもらえてる」と感じると動き出すタイプです。\n褒め言葉より、まず「見てるよ」の一言が力になります。"
+    description: "3問診断の結果では、お子さんは「見てるよ」タイプ。\n\nついつい…\n<strong>「自分でやって！」</strong>\n<strong>「まだできてないの？」</strong>\nしていませんか？\n\nこの子のやる気は、突き放す言葉の反対側——「ちゃんと見てるよ」の一言の中にあります。\n声が届かなかったんじゃなく、スイッチの場所がちょっと違っただけ。\n場所がわかれば、同じ毎日が驚くほど変わるかもしれません。"
   },
   B: {
     img: "img/type-b.png",
     type: "「おもしろいよ」スイッチ",
-    description: "3問診断の結果では、\nお子さんは「面白そう！」という好奇心で動き出すタイプです。\n「やってみよう」「どうなるかな？」の言葉がやる気に火をつけます。"
+    description: "3問診断の結果では、お子さんは「おもしろいよ」タイプ。\n\nついつい…\n<strong>「今その時間じゃない！」</strong>\n<strong>「やることはやるの！」</strong>\nと、理由なくさえぎっていませんか？\n\nこの子のやる気は、正しさよりも「どうなるかな？」のワクワクの中にあります。\nやる気がないんじゃなく、面白さの入り口でブレーキをかけられていただけ。\n夢中の入り口が見つかれば、驚くほど自分から動き出すかもしれません。"
   },
   C: {
     img: "img/type-c.png",
     type: "「決めれるよ」スイッチ",
-    description: "3問診断の結果では、\nお子さんは「自分で決めた」という感覚で動き出すタイプです。\n選ばせる・任せるが、いちばんのやる気スイッチです。"
+    description: "3問診断の結果では、お子さんは「決めれるよ」タイプ。\n\nついつい…\n<strong>「こっちにしなさい」</strong>\n<strong>「ママの言うとおりにして」</strong>\nと、先に決めていませんか？\n\nこの子のやる気は、指示の中ではなく「自分で決めた」という実感の中にあります。\n言うことを聞かないんじゃなく、スイッチの場所がちょっと違っただけ。\n選ばせる・任せるに変えるだけで、驚くほど動き出すかもしれません。"
   }
 };
 
@@ -145,7 +145,7 @@ function showResult() {
   img.src = result.img;
   img.alt = result.type;
   document.getElementById("result-type").textContent = result.type;
-  document.getElementById("result-description").textContent = result.description;
+  document.getElementById("result-description").innerHTML = result.description;
 
   // CTAをconfigから設定
   document.getElementById("cta-item3").textContent = config.item3;
