@@ -3,6 +3,7 @@
 // ====================================
 const config = {
   intro: "何度言っても動かない…\nそれ、「個性」かも？",  // ← 前置き文（雲の中の文字）
+  ctaLead: "「じゃあ、どう声をかければいいの？」\nその答えの続きは、ここにあります。",  // ← CTA導入文（来た人の"知りたい"に橋渡し）
   item3: "無料個別相談会（30分）",          // ← 3つ目のプレゼント内容
   limited: "数量限定のプレゼントです！お早めにお受け取りください🎁",  // ← 限定文
   btnText: "LINEで受け取る（無料）",        // ← ボタンの文言
@@ -148,6 +149,7 @@ function showResult() {
   document.getElementById("result-description").innerHTML = result.description;
 
   // CTAをconfigから設定
+  document.getElementById("cta-lead").textContent = config.ctaLead;
   document.getElementById("cta-item3").textContent = config.item3;
   document.getElementById("cta-limited").textContent = config.limited;
   const btnCta = document.getElementById("btn-cta");
