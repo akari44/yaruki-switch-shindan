@@ -565,6 +565,11 @@ h2 {
     display: none;
 }
 
+/* 結果タイプ名の改行制御：PCでは改行しない */
+.br-sp {
+    display: none;
+}
+
 /* ========== スマホ対応 ========== */
 @media (max-width: 600px) {
     #app {
@@ -598,5 +603,9 @@ h2 {
     .cta-banner {
         margin-left: -20px;
         margin-right: -20px;
+    }
+    /* 結果タイプ名：スマホでは「〇〇」の後で改行 */
+    .br-sp {
+        display: inline;
     }
 }

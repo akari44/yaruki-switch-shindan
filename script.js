@@ -145,7 +145,7 @@ function showResult() {
   const img = document.getElementById("result-img");
   img.src = result.img;
   img.alt = result.type;
-  document.getElementById("result-type").textContent = result.type;
+  document.getElementById("result-type").innerHTML = result.type.replace("スイッチ", '<br class="br-sp">スイッチ');
   document.getElementById("result-description").innerHTML = result.description;
 
   // CTAをconfigから設定
