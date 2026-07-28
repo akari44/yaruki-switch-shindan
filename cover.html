@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ココナラ カバー画像 1280×420</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Yomogi&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+  .note { color: #666; font-size: 14px; margin-bottom: 12px; }
+
+  /* ===== ここをスクショ（1280×420） ===== */
+  .cover {
+    position: relative;
+    width: 1280px;
+    height: 420px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff6f2 0%, #ffe9e4 55%, #ffe0ea 100%);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+
+  /* ふわっと雲 */
+  .cloud { position: absolute; background: rgba(255,255,255,0.6); border-radius: 50%; filter: blur(2px); }
+  .cloud.c1 { width: 240px; height: 240px; top: -90px; left: 40px; }
+  .cloud.c2 { width: 160px; height: 160px; bottom: -70px; left: 240px; background: rgba(255,255,255,0.45);}
+  .cloud.c3 { width: 200px; height: 200px; top: -70px; right: 300px; background: rgba(255,255,255,0.4);}
+
+  /* キラキラ */
+  .spark { position: absolute; }
+  .s1 { top: 70px; left: 560px; color: #ffd08a; font-size: 26px;}
+  .s2 { top: 260px; left: 60px; color: #f0a090; font-size: 20px;}
+  .s3 { bottom: 70px; left: 470px; color: #ffc0b0; font-size: 22px;}
+  .s4 { top: 90px; right: 150px; color: #ffd08a; font-size: 22px;}
+  .s5 { bottom: 90px; right: 120px; color: #f0a090; font-size: 18px;}
+
+  .text-area { position: relative; z-index: 2; padding: 0 70px; flex: 1; }
+  .main {
+    font-weight: 900;
+    font-size: 55px;
+    line-height: 1.45;
+    color: #e07060;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 0 rgba(255,255,255,0.6);
+  }
+  .main .hl {
+    display: inline-block;
+    color: #fff;
+    background: #e07060;
+    padding: 0 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 0 #c85a48;
+  }
+  .sub {
+    margin-top: 28px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #7a5148;
+  }
+  .sub .mark { color: #e07060; margin-right: 6px; }
+
+  /* ＋1 ブランドマーク */
+  .mark-area {
+    position: relative;
+    z-index: 2;
+    width: 360px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .badge {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f3907e, #e07060);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px rgba(224,112,96,0.35), inset 0 3px 8px rgba(255,255,255,0.35);
+    border: 5px solid #fff;
+  }
+  .badge span {
+    font-size: 96px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.12);
+    letter-spacing: -2px;
+  }
+  .brand {
+    font-family: 'Yomogi', sans-serif;
+    font-size: 30px;
+    color: #d86a58;
+    font-weight: 700;
+  }
+  .gift { position: absolute; font-size: 40px; bottom: 78px; right: 60px; transform: rotate(-8deg); }
+</style>
+</head>
+<body>
+  <p class="note">↓ この枠（1280×420）をスクリーンショットしてください</p>
+  <div class="cover">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+    <span class="spark s1">✦</span>
+    <span class="spark s2">✧</span>
+    <span class="spark s3">✦</span>
+    <span class="spark s4">✧</span>
+    <span class="spark s5">✦</span>
+
+    <div class="text-area">
+      <div class="main">
+        お客様の心を動かす、<br>
+        <span class="hl">小さな仕掛け</span>を<br>
+        デザインします
+      </div>
+      <div class="sub"><span class="mark">◎</span>診断・LP・特典に、ワクワクするひと工夫を ｜ 元小学校教員</div>
+    </div>
+
+    <div class="mark-area">
+      <div class="badge"><span>＋1</span></div>
+      <div class="brand">＋1ギミック</div>
+      <span class="gift">🎁</span>
+    </div>
+  </div>
+</body>
+</html>

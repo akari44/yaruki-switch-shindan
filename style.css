@@ -564,3 +564,39 @@ h2 {
 .hidden {
     display: none;
 }
+
+/* ========== スマホ対応 ========== */
+@media (max-width: 600px) {
+    #app {
+        width: 94%;
+    }
+    #screen-start,
+    #screen-quiz,
+    #screen-result {
+        padding: 32px 20px;
+    }
+    h1 {
+        font-size: 1.4rem;
+        letter-spacing: 0.02em;
+        line-height: 1.6;
+    }
+    .title-accent {
+        font-size: 1.55rem;
+    }
+    /* 雲の中に文字を収める */
+    .cloud-balloon {
+        width: 96%;
+        max-width: 300px;
+        aspect-ratio: 320 / 220;
+    }
+    .cloud-balloon p {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        padding: 0 15%;
+    }
+    /* 濃ピンク帯：カード余白(20px)に合わせて端まで */
+    .cta-banner {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+}
