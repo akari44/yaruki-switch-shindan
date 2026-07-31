@@ -156,6 +156,11 @@ h1 {
     line-height: 1.8;
 }
 
+.subtitle strong {
+    color: var(--coral);
+    font-weight: 700;
+}
+
 /* ========== ボタン共通 ========== */
 .btn-main {
     display: block;
