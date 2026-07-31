@@ -1,3 +1,13 @@
+/* ============================================
+   ★カラー設定★  クライアントの色はここだけ変える
+   --coral       = メインカラー（ボタン・見出し・帯）
+   --coral-light = 明るいアクセント（グラデ・光沢）
+   ============================================ */
+:root {
+    --coral: var(--coral);
+    --coral-light: var(--coral-light);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -48,13 +58,13 @@ h1 {
     font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.7;
-    color: #e07060;
+    color: var(--coral);
     letter-spacing: 0.05em;
 }
 
 .title-accent {
     display: inline-block;
-    background: linear-gradient(135deg, #e07060, #f0a090, #e07060);
+    background: linear-gradient(135deg, var(--coral), var(--coral-light), var(--coral));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -152,7 +162,7 @@ h1 {
     width: 70%;
     margin: 0 auto;
     padding: 16px 20px;
-    background: linear-gradient(135deg, #e07060, #d05848);
+    background: linear-gradient(135deg, var(--coral), #d05848);
     color: #fff;
     border: none;
     border-radius: 50px;
@@ -181,7 +191,7 @@ h1 {
 #question-number {
     font-size: 1rem;
     font-weight: 700;
-    color: #e07060;
+    color: var(--coral);
     margin-bottom: 12px;
     letter-spacing: 0.1em;
 }
@@ -197,7 +207,7 @@ h1 {
 
 #progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #e07060, #f0a090);
+    background: linear-gradient(90deg, var(--coral), var(--coral-light));
     border-radius: 10px;
     transition: width 0.4s ease;
 }
@@ -236,16 +246,16 @@ h1 {
 }
 
 .choice-btn:hover {
-    border-color: #e07060;
+    border-color: var(--coral);
     background: #fff5f3;
-    color: #e07060;
+    color: var(--coral);
     transform: translateY(-2px);
     box-shadow: 0 5px 0 #e0c0bc, 0 6px 16px rgba(224, 112, 96, 0.2);
 }
 
 .choice-btn.selected {
-    border-color: #e07060;
-    background: linear-gradient(135deg, #e07060, #d05848);
+    border-color: var(--coral);
+    background: linear-gradient(135deg, var(--coral), #d05848);
     color: #fff;
     transform: scale(1.02);
     box-shadow: 0 4px 16px rgba(224, 112, 96, 0.5);
@@ -308,7 +318,7 @@ h1 {
 
 .result-maybe {
     font-size: 1rem;
-    color: #e07060;
+    color: var(--coral);
     font-weight: 700;
     margin-bottom: 16px;
     animation: fade-up 0.5s 0.5s ease both;
@@ -335,7 +345,7 @@ h1 {
 /* ===== 問いかけの波線帯 ===== */
 .cta-banner {
     position: relative;
-    background: #e07060;
+    background: var(--coral);
     color: #fff;
     margin: 28px -32px 0;
     padding: 42px 28px 34px;
@@ -389,7 +399,7 @@ h1 {
     gap: 16px;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #e07060;
+    color: var(--coral);
     margin-bottom: 16px;
     letter-spacing: 0.05em;
     animation: badge-pop 0.4s ease both;
@@ -401,7 +411,7 @@ h1 {
     content: "";
     width: 4px;
     height: 32px;
-    background: linear-gradient(to bottom, #f0a090, #e07060);
+    background: linear-gradient(to bottom, var(--coral-light), var(--coral));
     border-radius: 4px;
     flex-shrink: 0;
     transform-origin: bottom center;
@@ -460,7 +470,7 @@ h1 {
 
 .cta-limited {
     font-size: 0.8rem;
-    color: #e07060;
+    color: var(--coral);
     background: #fff5f3;
     border: 1px solid #f0c0b8;
     border-radius: 8px;
@@ -485,7 +495,7 @@ h1 {
 h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #e07060, #d05848);
+    background: linear-gradient(135deg, var(--coral), #d05848);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -506,7 +516,7 @@ h2 {
 }
 
 #result-description strong {
-    color: #e07060;
+    color: var(--coral);
     font-weight: 700;
 }
 
