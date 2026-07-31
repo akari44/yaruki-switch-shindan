@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【デモLP・パターンA】ちいさな手のひら 子育てラボ</title>
+  <style>
+    /* ============================================================
+       器はこれだけ。① 画像 → ② 画像 → 【診断】 → ③ 画像 を縦に並べるだけ。
+       リッチさは全部「画像」に持たせる（＝本物のLPと同じ構造）。
+       画像を img/ に置けば、点線プレースホルダーが本物の画像に変わる。
+       ============================================================ */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body{ background:#f2d6cd; font-family:'Hiragino Kaku Gothic Pro',sans-serif; }  /* 外側：やや濃いコーラル（枠っぽく） */
+    .lp{ max-width:720px; margin:0 auto; background:#fdeee8; }  /* 中身：薄いコーラル（診断がここに溶け込む） */
+
+    /* 画像バナー：画像をそのまま隙間なく縦にぴったり並べる */
+    .banner{ font-size:0; line-height:0; }
+    .banner img{ width:100%; display:block; }
+
+    /* 診断の埋め込み枠（唯一の"動く"パーツ） */
+    .embed{ padding:0; }
+    .embed iframe{ width:100%; height:760px; border:none; background:transparent; }
+  </style>
+</head>
+<body>
+  <div class="lp">
+
+    <!-- ① ファーストビュー画像 -->
+    <div class="banner" data-label="① ファーストビュー画像をここに（img/fv.png）">
+      <img src="img/fv.png" alt="" onerror="this.style.display='none'">
+    </div>
+
+    <!-- ② 共感コンテンツ画像 -->
+    <div class="banner" data-label="② 共感コンテンツ画像をここに（img/empathy.png）">
+      <img src="img/empathy.png" alt="" onerror="this.style.display='none'">
+    </div>
+
+    <!-- 【診断】← ここだけが動くパーツ（お客さんのLPでもここだけ動く） -->
+    <div class="embed">
+      <iframe src="../index.html" title="やる気スイッチ診断"></iframe>
+    </div>
+
+    <!-- ③ 最後の一押し画像 -->
+    <div class="banner" data-label="③ 最後の一押し画像をここに（img/cta.png）">
+      <img src="img/cta.png" alt="" onerror="this.style.display='none'">
+    </div>
+
+  </div>
+</body>
+</html>
