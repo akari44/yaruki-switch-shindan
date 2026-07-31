@@ -4,8 +4,8 @@
    --coral-light = 明るいアクセント（グラデ・光沢）
    ============================================ */
 :root {
-    --coral: var(--coral);
-    --coral-light: var(--coral-light);
+    --coral: #e07060;
+    --coral-light: #f0a090;
 }
 
 * {
