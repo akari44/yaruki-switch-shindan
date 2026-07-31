@@ -5,8 +5,8 @@
    ↓下の派生色は --coral から自動計算されるので触らなくてOK
    ============================================ */
 :root {
-    --coral: #e07060;
-    --coral-light: #f0a090;
+    --coral: #52ab5a;
+    --coral-light: #8ed48e;
 
     /* 濃い/影/薄い を --coral から自動生成 */
     --coral-deep:   color-mix(in srgb, var(--coral) 85%, #000);

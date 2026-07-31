@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【デモLP・パターンB】めぐみ食堂 おやこ食育ラボ</title>
+  <style>
+    /* ============================================================
+       Aと同じ「画像を縦に並べて真ん中に診断」の器。色だけナチュラル系。
+       画像は img-b/ に置く（Aのimg/とは別フォルダ）。
+       診断はB専用コピー（yaruki-switch-shindan-b）を映す。
+       ============================================================ */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body{ background:#ffdf8a; font-family:'Hiragino Kaku Gothic Pro',sans-serif; }  /* 外側：ポップな明るいイエロー */
+    .lp{ max-width:720px; margin:0 auto; background:#fffbef; }  /* 中身：クリーム（診断がここに溶け込む） */
+
+    .banner{ font-size:0; line-height:0; }
+    .banner img{ width:100%; display:block; }
+
+    .embed{ padding:0; }
+    .embed iframe{ width:100%; height:760px; border:none; background:transparent; }
+  </style>
+</head>
+<body>
+  <div class="lp">
+
+    <!-- ① ファーストビュー画像 -->
+    <div class="banner">
+      <img src="img-b/fv.png" alt="" onerror="this.style.display='none'">
+    </div>
+
+    <!-- ② 共感コンテンツ画像 -->
+    <div class="banner">
+      <img src="img-b/empathy.png" alt="" onerror="this.style.display='none'">
+    </div>
+
+    <!-- 【診断】← B専用コピー（グリーンにする）を映す -->
+    <div class="embed">
+      <iframe src="b/index.html" title="やる気スイッチ診断"></iframe>
+    </div>
+
+    <!-- ③ 最後の一押し画像 -->
+    <div class="banner">
+      <img src="img-b/cta.png" alt="" onerror="this.style.display='none'">
+    </div>
+
+  </div>
+</body>
+</html>
