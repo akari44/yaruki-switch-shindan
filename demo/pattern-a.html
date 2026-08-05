@@ -47,5 +47,14 @@
     </div>
 
   </div>
+
+  <script>
+  window.addEventListener("message", function (e) {
+    if (e.data && e.data.type === "shindan-height") {
+      var f = document.querySelector(".embed iframe");
+      if (f) f.style.height = e.data.height + "px";
+    }
+  });
+  </script>
 </body>
 </html>

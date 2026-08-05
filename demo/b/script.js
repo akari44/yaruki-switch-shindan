@@ -1,10 +1,13 @@
+// 埋め込み(iframe)内なら、カード感を消してLPに溶け込ませる
+if (window.self !== window.top) document.documentElement.classList.add("embedded");
+
 // ====================================
 // 依頼主カスタマイズ設定（ここを変更）
 // ====================================
 const config = {
-  intro: "子どもの個性を知れば\n「自分で食べる」ヒントがわかる！",  // ← 前置き文（雲の中の文字）
+  banner: "img/banner.png",  // ← トップのバナー画像（クライアントごと差し替え）
   ctaLead: "「じゃあ、どう声をかければいいの？」\nその答えの続きは、ここにあります。",  // ← CTA導入文（来た人の"知りたい"に橋渡し）
-  item3: "無料おやこ食育講座（アーカイブ）",          // ← 3つ目のプレゼント内容
+  item3: "無料個別相談会（30分）",          // ← 3つ目のプレゼント内容
   limited: "数量限定のプレゼントです！お早めにお受け取りください🎁",  // ← 限定文
   btnText: "LINEで受け取る（無料）",        // ← ボタンの文言
   url: "#",                                 // ← リンク先URL
@@ -59,33 +62,8 @@ const results = {
 let current = 0;
 let scores = { A: 0, B: 0, C: 0 };
 
-// 前置き文をセット
-document.getElementById("intro-text").textContent = config.intro;
-
-// タイトルホバーで★が飛ぶ
-const title = document.getElementById("main-title");
-const starsContainer = document.getElementById("stars-container");
-
-title.addEventListener("mouseenter", () => {
-  for (let i = 0; i < 8; i++) {
-    setTimeout(() => spawnStar(), i * 60);
-  }
-});
-
-function spawnStar() {
-  const star = document.createElement("span");
-  star.classList.add("star");
-  star.textContent = ["★", "☆", "✦", "✧"][Math.floor(Math.random() * 4)];
-  const dx = (Math.random() - 0.5) * 120;
-  const dy = -(Math.random() * 80 + 20);
-  star.style.setProperty("--dx", dx + "px");
-  star.style.setProperty("--dy", dy + "px");
-  star.style.left = (30 + Math.random() * 40) + "%";
-  star.style.top = (20 + Math.random() * 40) + "%";
-  star.style.color = ["#e07060", "#f0a090", "#ffc0b0", "#ffdd88"][Math.floor(Math.random() * 4)];
-  starsContainer.appendChild(star);
-  setTimeout(() => star.remove(), 800);
-}
+// バナー画像（タイトル）をセット
+document.getElementById("hero-banner").src = config.banner;
 
 // スタートボタン
 document.getElementById("btn-start").addEventListener("click", () => {
@@ -179,4 +157,14 @@ function spawnSparkles() {
       setTimeout(() => s.remove(), 1800);
     }, i * 80);
   }
+}
+
+// ==== 埋め込み時、親フレームに高さを通知して上下の余白をなくす ====
+function postHeight() {
+  const h = Math.ceil(document.body.getBoundingClientRect().height);
+  parent.postMessage({ type: "shindan-height", height: h }, "*");
+}
+window.addEventListener("load", postHeight);
+if (window.ResizeObserver) {
+  new ResizeObserver(postHeight).observe(document.body);
 }

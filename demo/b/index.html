@@ -17,48 +17,7 @@
 
         <!-- タイトル画面 -->
         <div id="screen-start">
-            <div class="cloud-balloon">
-                <svg class="cloud-svg" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <defs>
-                        <filter id="goo">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
-                            <feColorMatrix in="blur" mode="matrix"
-                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -11" result="goo" />
-                            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-                        </filter>
-                    </defs>
-                    <!-- 思い出しっぽの小さな雲 -->
-                    <circle class="cloud-dot" cx="70" cy="182" r="9" />
-                    <circle class="cloud-dot" cx="52" cy="192" r="6" />
-                    <!-- ピンクのふち -->
-                    <g filter="url(#goo)" transform="translate(160,90) scale(1.05) translate(-160,-90)">
-                        <ellipse cx="160" cy="110" rx="115" ry="42" fill="var(--cloud-fill)" />
-                        <circle cx="70" cy="90" r="42" fill="var(--cloud-fill)" />
-                        <circle cx="120" cy="66" r="46" fill="var(--cloud-fill)" />
-                        <circle cx="178" cy="60" r="50" fill="var(--cloud-fill)" />
-                        <circle cx="235" cy="72" r="44" fill="var(--cloud-fill)" />
-                        <circle cx="272" cy="98" r="38" fill="var(--cloud-fill)" />
-                        <circle cx="115" cy="108" r="46" fill="var(--cloud-fill)" />
-                        <circle cx="210" cy="108" r="46" fill="var(--cloud-fill)" />
-                    </g>
-                    <!-- 白い本体 -->
-                    <g filter="url(#goo)">
-                        <ellipse cx="160" cy="110" rx="115" ry="42" fill="#ffffff" />
-                        <circle cx="70" cy="90" r="42" fill="#ffffff" />
-                        <circle cx="120" cy="66" r="46" fill="#ffffff" />
-                        <circle cx="178" cy="60" r="50" fill="#ffffff" />
-                        <circle cx="235" cy="72" r="44" fill="#ffffff" />
-                        <circle cx="272" cy="98" r="38" fill="#ffffff" />
-                        <circle cx="115" cy="108" r="46" fill="#ffffff" />
-                        <circle cx="210" cy="108" r="46" fill="#ffffff" />
-                    </g>
-                </svg>
-                <p id="intro-text"></p>
-            </div>
-            <div class="title-wrap">
-                <h1 id="main-title">わが子の<br><span class="title-accent">"やる気スイッチ"</span>診断</h1>
-                <div class="stars-container" id="stars-container"></div>
-            </div>
+            <img class="hero-banner" id="hero-banner" src="" alt="診断">
             <p class="subtitle">
                 3問、選ぶだけのシンプル診断。
                 <br><strong>ページ移動なし</strong>で、このまま診断結果が見られます。</p>
